@@ -1,4 +1,5 @@
 # sitelen-emoji-truth
+A pinned, versioned “source of truth” profile for toki pona → sitelen emoji, with reproducible book-ready visuals.
 
 [![build](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml/badge.svg)](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml)
 [![release](https://img.shields.io/github/v/release/markoblogo/sitelen-emoji-truth?include_prereleases=true&sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/releases)
@@ -156,8 +157,8 @@ https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles
 
 ---
 
-## **License & attribution**
+## License & attribution
 
-- Add a LICENSE file for this repository (recommended: MIT).
-    
-- Twemoji graphics are **CC BY 4.0** — include attribution in published works that embed Twemoji PNG.
+- Repository code and profiles: MIT License (see `LICENSE`).
+- Twemoji graphics are **not included** in this repository and are fetched separately.
+  If you publish outputs that embed Twemoji PNG, include attribution (Twemoji is CC BY 4.0).
