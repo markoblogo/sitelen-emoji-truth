@@ -15,8 +15,9 @@ def test_readme_has_dev_setup_instructions():
     content = README_PATH.read_text(encoding="utf-8")
 
     # Basic structure
-    assert "# sitelen-emoji-truth" in content
-    assert "## Dev setup" in content
+    assert "python3 -m venv" in content or "python -m venv" in content
+    assert "pip install -r requirements-dev.txt" in content
+    assert "pytest -q" in content
 
     # Key shell commands for initial developer setup
     expected_snippets = [
