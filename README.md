@@ -1,8 +1,7 @@
 # sitelen-emoji-truth
 A pinned, versioned “source of truth” profile for toki pona → sitelen emoji, with reproducible book-ready visuals.
 
-[![build](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml/badge.svg)](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml)
-[![release](https://img.shields.io/github/v/release/markoblogo/sitelen-emoji-truth?sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/releases)
+[![build](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml/badge.svg?branch=main&v=1)](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml)
 [![tag](https://img.shields.io/github/v/tag/markoblogo/sitelen-emoji-truth?sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/tags)
 [![license](https://img.shields.io/github/license/markoblogo/sitelen-emoji-truth)](https://github.com/markoblogo/sitelen-emoji-truth/blob/main/LICENSE)
 
