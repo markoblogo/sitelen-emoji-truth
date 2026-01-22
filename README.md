@@ -4,6 +4,10 @@
 [![release](https://img.shields.io/github/v/release/markoblogo/sitelen-emoji-truth?include_prereleases=true&sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/releases)
 [![license](https://img.shields.io/github/license/markoblogo/sitelen-emoji-truth)](https://github.com/markoblogo/sitelen-emoji-truth/blob/main/LICENSE)
 
+<p align="center">
+  <img src="docs/cover.png" alt="sitelen-emoji-truth cover" width="980" />
+</p>
+
 Canonical **frozen** mapping for **toki pona → sitelen emoji**.
 
 > Goal: one stable “source of truth” for production (translator, books), with reproducible visuals.
