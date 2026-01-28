@@ -162,3 +162,6 @@ https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles
 - Repository code and profiles: MIT License (see `LICENSE`).
 - Twemoji graphics are **not included** in this repository and are fetched separately.
   If you publish outputs that embed Twemoji PNG, include attribution (Twemoji is CC BY 4.0).
+
+## Want to read more toki pona?
+Free beginner-friendly Reader’s Kit (PDF): https://toki.abvx.xyz/kit
