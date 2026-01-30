@@ -11,6 +11,8 @@ A pinned, versioned “source of truth” profile for toki pona → sitelen emoj
 
 Canonical **frozen** mapping for **toki pona → sitelen emoji**.
 
+**License:** MIT. See [LICENSE](LICENSE).
+
 > Goal: one stable “source of truth” for production (translator, books), with reproducible visuals.
 
 ---
