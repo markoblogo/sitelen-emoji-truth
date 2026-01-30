@@ -34,10 +34,9 @@ Example:
 
 ```text
 https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles/default-stable.v1.json
-````
+```
 
 Replace v1.0.0 with the tag you want to pin to.
-  
 
 Why pin: your translator/book pipeline should not change output unless **you** intentionally update the pinned version.
 
