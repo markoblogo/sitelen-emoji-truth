@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "mode": "safe",
+  "on_missing_markers": "write_generated",
+  "generated_suffix": ".generated",
+  "markers": {
+    "start": "<!-- AGENTSGEN:START section={section} -->",
+    "end": "<!-- AGENTSGEN:END section={section} -->"
+  },
+  "sections": [
+    "guardrails",
+    "workflow",
+    "style",
+    "verification",
+    "stack",
+    "repo_context"
+  ],
+  "presets": {},
+  "defaults": {},
+  "project": {
+    "primary_stack": "python",
+    "name": "sitelen-emoji-truth",
+    "repo_root": ".",
+    "python_toolchain": "vanilla"
+  },
+  "paths": {
+    "docs": [
+      "README.md",
+      "CONTRIBUTING.md"
+    ],
+    "ci": ".github/workflows/",
+    "scripts": "scripts/"
+  },
+  "commands": {
+    "test": "pytest",
+    "fast": "pytest -q"
+  },
+  "evidence": {
+    "python": [
+      "pytest.ini"
+    ],
+    "node": [],
+    "make": [],
+    "ci": [
+      ".github/workflows/build.yml"
+    ]
+  }
+}
