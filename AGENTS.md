@@ -217,7 +217,7 @@ State:
 - **Test:** `pytest`
 
 - **Run a single test:** (not specified)
-- **Where configs live:** (not specified)
+- **Where configs live:** `.github/workflows/`, `pytest.ini`
 <!-- AGENTSGEN:END section=commands -->
 
 <!-- AGENTSGEN:START section=python -->
@@ -241,7 +241,7 @@ State:
 ## Repo Structure
 
 <!-- AGENTSGEN:START section=structure -->
-- (not specified)
+- **Config:** `.github/workflows/`, `pytest.ini`
 <!-- AGENTSGEN:END section=structure -->
 
 ## Output Protocol
