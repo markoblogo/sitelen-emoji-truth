@@ -77,6 +77,31 @@ python tools/build_default_stable.py
 
 ---
 
+## Documentation
+
+- [Mapping reference](docs/mapping.md)
+- [Coverage report](docs/coverage.md)
+- [Design principles](docs/design-principles.md)
+- [Changelog](CHANGELOG.md)
+
+Generated docs should be regenerated after profile changes:
+
+```bash
+python3 -m tools.export_mapping_md
+python3 -m tools.coverage_report
+```
+
+---
+
+## Examples
+
+```bash
+python3 examples/python-load-profile.py
+node examples/node-load-profile.js
+```
+
+---
+
 ## **Books pipeline**
 
 ### **1) Convert toki pona text → sitelen emoji tokens**
