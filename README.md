@@ -4,6 +4,8 @@ A pinned, versioned “source of truth” profile for toki pona → sitelen emoj
 [![build](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml/badge.svg?branch=main&v=1)](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml)
 [![tag](https://img.shields.io/github/v/tag/markoblogo/sitelen-emoji-truth?sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/tags)
 [![license](https://img.shields.io/github/license/markoblogo/sitelen-emoji-truth)](https://github.com/markoblogo/sitelen-emoji-truth/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/sitelen-emoji)](https://www.npmjs.com/package/sitelen-emoji)
+[![PyPI](https://img.shields.io/pypi/v/sitelen-emoji)](https://pypi.org/project/sitelen-emoji/)
 [![Reader's Kit](https://img.shields.io/badge/Reader's%20Kit-free%20PDF-0f766e)](https://toki.abvx.xyz/kit)
 [![Viewer](https://img.shields.io/badge/GitHub%20Pages-viewer-2563eb)](https://markoblogo.github.io/sitelen-emoji-truth/)
 
@@ -26,8 +28,9 @@ Canonical **frozen** mapping for **toki pona → sitelen emoji**.
 ## Use the data
 
 - Browser: open the [GitHub Pages viewer](https://markoblogo.github.io/sitelen-emoji-truth/).
-- JSON: pin a tag and fetch `profiles/default-stable.v1.json`.
-- Python/Node: use the local package helpers while npm/PyPI publishing is prepared.
+- npm: `npm install sitelen-emoji`
+- PyPI: `python -m pip install sitelen-emoji`
+- JSON: pin a release tag and fetch `profiles/default-stable.v1.json`.
 - Profile variants: use `profiles/minimal.v1.json` for core words only or `profiles/extended.v1.json` for community/upstream entries.
 
 ## What is frozen vs generated
@@ -51,10 +54,10 @@ Pin to a **git tag** (recommended) and fetch the frozen profile via `raw.githubu
 Example:
 
 ```text
-https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles/default-stable.v1.json
+https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/sitelen-emoji-truth-v1.1.0/profiles/default-stable.v1.json
 ```
 
-Replace v1.0.0 with the tag you want to pin to.
+Replace `sitelen-emoji-truth-v1.1.0` with the release tag you want to pin to.
 
 Why pin: your translator/book pipeline should not change output unless **you** intentionally update the pinned version.
 
@@ -117,9 +120,13 @@ python3 examples/python-load-profile.py
 node examples/node-load-profile.js
 ```
 
-## Local package helpers
+## Packages
 
 Python:
+
+```bash
+python -m pip install sitelen-emoji
+```
 
 ```python
 from sitelen_emoji import lookup, translate
@@ -130,8 +137,12 @@ translate("jan pona")  # "👤 👍"
 
 Node:
 
+```bash
+npm install sitelen-emoji
+```
+
 ```js
-const { lookup, translate } = require("./packages/js");
+const { lookup, translate } = require("sitelen-emoji");
 
 lookup("toki");          // "🗣️"
 translate("jan pona");  // "👤 👍"
@@ -207,15 +218,16 @@ python3 -m tools.diff_profiles
 
 ## **Releasing a pinned version**
 
-```
-git tag -a v1.0.0 -m "Pinned frozen profile"
-git push origin v1.0.0
-```
+Releases are managed by release-please from Conventional Commits.
 
-Then consumers can pin to:
+1. Merge feature/fix commits into `main`.
+2. Let the `release-please` workflow open a release PR.
+3. Merge the release PR to create the GitHub Release and tag.
+
+Consumers can pin to release tags:
 
 ```
-https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles/default-stable.v1.json
+https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/sitelen-emoji-truth-v1.1.0/profiles/default-stable.v1.json
 ```
 
 ---
@@ -227,4 +239,5 @@ https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/v1.0.0/profiles
   If you publish outputs that embed Twemoji PNG, include attribution (Twemoji is CC BY 4.0).
 
 ## Want to read more toki pona?
+
 Free beginner-friendly Reader’s Kit (PDF): https://toki.abvx.xyz/kit
