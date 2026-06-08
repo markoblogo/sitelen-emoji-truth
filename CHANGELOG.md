@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/markoblogo/sitelen-emoji-truth/compare/sitelen-emoji-truth-v1.0.0...sitelen-emoji-truth-v1.1.0) (2026-06-08)
+
+
+### Features
+
+* add package publishing and profile variants ([b11e96d](https://github.com/markoblogo/sitelen-emoji-truth/commit/b11e96d3635af2a4060d82bed98b730fefbc4fbb))
+* strengthen public docs and package helpers ([ad6c492](https://github.com/markoblogo/sitelen-emoji-truth/commit/ad6c492fa9ffed66cbe1f04632ff5d6ec962a78d))
+
 ## v1.0.0
 
 - Added frozen `default-stable.v1` profile.
