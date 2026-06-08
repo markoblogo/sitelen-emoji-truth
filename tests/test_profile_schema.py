@@ -18,3 +18,12 @@ def test_profiles_match_schema():
         profile = json.loads(profile_path.read_text(encoding="utf-8"))
         errors = sorted(validator.iter_errors(profile), key=lambda error: error.json_path)
         assert errors == [], f"{profile_path.name} schema errors: {[error.message for error in errors]}"
+
+
+def test_profile_word_count_metadata_matches_entries():
+    for profile_path in sorted((ROOT / "profiles").glob("*.json")):
+        if profile_path.name == "schema.json":
+            continue
+        profile = json.loads(profile_path.read_text(encoding="utf-8"))
+        if "word_count" in profile:
+            assert profile["word_count"] == len(profile["entries"])

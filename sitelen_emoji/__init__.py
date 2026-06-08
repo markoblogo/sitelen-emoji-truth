@@ -3,22 +3,25 @@ from __future__ import annotations
 import json
 import re
 from functools import lru_cache
+from importlib import resources
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PROFILE_PATH = ROOT / "profiles" / "default-stable.v1.json"
+DEFAULT_PROFILE_RESOURCE = ("profiles", "default-stable.v1.json")
 TOKEN_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_-]*|[.:]")
 
 
-def load_profile(path: str | Path = DEFAULT_PROFILE_PATH) -> dict[str, Any]:
-    """Load a sitelen-emoji profile JSON file."""
+def load_profile(path: str | Path | None = None) -> dict[str, Any]:
+    """Load a profile JSON file, or the bundled default profile when no path is provided."""
+    if path is None:
+        return default_profile()
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 @lru_cache(maxsize=1)
 def default_profile() -> dict[str, Any]:
-    return load_profile(DEFAULT_PROFILE_PATH)
+    profile_text = resources.files(__package__).joinpath(*DEFAULT_PROFILE_RESOURCE).read_text(encoding="utf-8")
+    return json.loads(profile_text)
 
 
 def lookup(word: str, profile: dict[str, Any] | None = None) -> str | None:

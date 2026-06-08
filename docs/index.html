@@ -197,9 +197,9 @@
     <main>
       <header>
         <h1>sitelen-emoji-truth</h1>
-        <p>Browse the pinned toki pona → sitelen emoji profile. Search by word, alias, utility key, or emoji.</p>
+        <p>Browse pinned toki pona → sitelen emoji profiles. Search by word, alias, utility key, or emoji.</p>
         <div class="actions">
-          <a class="button" href="https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/main/profiles/default-stable.v1.json">Raw JSON</a>
+          <a id="raw-link" class="button" href="https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/main/profiles/default-stable.v1.json">Raw JSON</a>
           <a class="button" href="mapping.md">Mapping reference</a>
           <a class="button" href="coverage.md">Coverage report</a>
           <a class="button" href="https://toki.abvx.xyz/kit">Reader's Kit</a>
@@ -207,6 +207,11 @@
       </header>
 
       <div class="toolbar">
+        <select id="profile" aria-label="Profile">
+          <option value="default-stable.v1.json">default-stable</option>
+          <option value="minimal.v1.json">minimal</option>
+          <option value="extended.v1.json">extended</option>
+        </select>
         <input id="search" type="search" placeholder="Search toki, emoji, alias, _punct_period..." autocomplete="off" />
         <div id="stats" class="stats" aria-live="polite"></div>
       </div>
@@ -217,10 +222,12 @@
     </main>
 
     <script>
-      const PROFILE_URL = "https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/main/profiles/default-stable.v1.json";
+      const PROFILE_BASE = "https://raw.githubusercontent.com/markoblogo/sitelen-emoji-truth/main/profiles/";
+      const profileSelect = document.querySelector("#profile");
       const search = document.querySelector("#search");
       const stats = document.querySelector("#stats");
       const app = document.querySelector("#app");
+      const rawLink = document.querySelector("#raw-link");
       let rows = [];
 
       function escapeHtml(value) {
@@ -281,9 +288,12 @@
         app.innerHTML = groups.map((name) => renderTable(name, visible.filter((row) => row.kind === name))).join("");
       }
 
-      async function main() {
+      async function loadSelectedProfile() {
+        const profileUrl = PROFILE_BASE + profileSelect.value;
+        rawLink.href = profileUrl;
+        app.innerHTML = `<div class="empty">Loading profile...</div>`;
         try {
-          const response = await fetch(PROFILE_URL, { cache: "no-store" });
+          const response = await fetch(profileUrl, { cache: "no-store" });
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const profile = await response.json();
           rows = classifyRows(profile).sort((a, b) => a.kind.localeCompare(b.kind) || a.word.localeCompare(b.word));
@@ -294,7 +304,8 @@
       }
 
       search.addEventListener("input", render);
-      main();
+      profileSelect.addEventListener("change", loadSelectedProfile);
+      loadSelectedProfile();
     </script>
   </body>
 </html>

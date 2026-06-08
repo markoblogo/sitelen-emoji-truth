@@ -1,6 +1,6 @@
 const path = require("node:path");
 
-const defaultProfile = require(path.resolve(__dirname, "../../profiles/default-stable.v1.json"));
+const defaultProfile = require(path.resolve(__dirname, "profiles/default-stable.v1.json"));
 
 function lookup(word, profile = defaultProfile) {
   const entries = profile.entries || {};

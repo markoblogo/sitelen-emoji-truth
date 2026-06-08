@@ -1,9 +1,13 @@
 {
   "name": "sitelen-emoji",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "toki pona to sitelen emoji lookup and translation helpers",
   "type": "commonjs",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "profiles/default-stable.v1.json"
+  ],
   "scripts": {
     "test": "node --test test.js"
   },

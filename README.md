@@ -28,11 +28,14 @@ Canonical **frozen** mapping for **toki pona → sitelen emoji**.
 - Browser: open the [GitHub Pages viewer](https://markoblogo.github.io/sitelen-emoji-truth/).
 - JSON: pin a tag and fetch `profiles/default-stable.v1.json`.
 - Python/Node: use the local package helpers while npm/PyPI publishing is prepared.
+- Profile variants: use `profiles/minimal.v1.json` for core words only or `profiles/extended.v1.json` for community/upstream entries.
 
 ## What is frozen vs generated
 
 - **Frozen (source of truth):**
   - `profiles/default-stable.v1.json` — pinned mapping intended for integrations and publishing.
+  - `profiles/minimal.v1.json` — core 120 toki pona words only.
+  - `profiles/extended.v1.json` — broader community/upstream mapping.
   - `profiles/schema.json` — JSON Schema for validating profile files.
 
 - **Generated (for comparison / upstream tracking):**
@@ -95,6 +98,7 @@ python tools/build_default_stable.py
 - [Mapping reference](docs/mapping.md)
 - [Coverage report](docs/coverage.md)
 - [Design principles](docs/design-principles.md)
+- [Publishing setup](docs/publishing.md)
 - [Changelog](CHANGELOG.md)
 
 Generated docs should be regenerated after profile changes:

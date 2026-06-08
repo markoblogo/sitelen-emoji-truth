@@ -78,6 +78,20 @@ def test_all_core_words_resolve(word):
     assert resolve(word, profile) is not None
 
 
+def test_profile_variants_have_expected_scope():
+    minimal = json.loads((ROOT / "profiles" / "minimal.v1.json").read_text(encoding="utf-8"))
+    extended = json.loads((ROOT / "profiles" / "extended.v1.json").read_text(encoding="utf-8"))
+
+    assert minimal["profile_type"] == "minimal"
+    assert len(minimal["entries"]) == 120
+    assert "_punct_period" not in minimal["entries"]
+    assert minimal["aliases"] == {}
+
+    assert extended["profile_type"] == "extended"
+    assert len(extended["entries"]) > len(load_profile()["entries"])
+    assert "_punct_period" in extended["entries"]
+
+
 def test_selected_entries_map_to_expected_emojis():
     profile = load_profile()
     entries = profile["entries"]

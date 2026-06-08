@@ -2,7 +2,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from sitelen_emoji import defaultProfile, lookup, translate
+from sitelen_emoji import defaultProfile, load_profile, lookup, translate
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_python_package_api():
     assert defaultProfile["entries"]["pona"] == "👍"
+    assert load_profile()["entries"]["pona"] == "👍"
     assert lookup("toki") == "🗣️"
     assert lookup("ali") == lookup("ale")
     assert translate("jan pona") == "👤 👍"
