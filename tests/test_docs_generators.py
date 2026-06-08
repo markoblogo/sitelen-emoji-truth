@@ -22,7 +22,10 @@ def test_coverage_report_generates_expected_summary(tmp_path):
 
     text = out.read_text(encoding="utf-8")
     assert "# Coverage report" in text
+    assert "Core words covered: **120/120**" in text
     assert "Core words covered" in text
     assert "Missing core words: **0**" in text
+    assert "Aliases resolved: **1/1**" in text
     assert "Aliases resolved" in text
+    assert "Utility entries: **2**" in text
     assert "Utility entries" in text

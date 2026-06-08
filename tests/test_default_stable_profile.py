@@ -1,15 +1,29 @@
 import json
 from pathlib import Path
 
+import pytest
+
+from tools.profile import load_profile as load_runtime_profile
+from tools.profile import resolve
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "profiles" / "default-stable.v1.json"
+WORDS_PATH = ROOT / "words" / "nimi_pu.txt"
 
 
 def load_profile():
     """Helper to load the default-stable profile JSON."""
     with PROFILE_PATH.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_core_words():
+    return [
+        line.strip()
+        for line in WORDS_PATH.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    ]
 
 
 def test_profile_loads_and_has_expected_top_level_shape():
@@ -48,6 +62,20 @@ def test_aliases_are_present_and_resolved_in_entries():
 
     # They should map to the same emoji glyph
     assert entries["ali"] == entries["ale"]
+
+
+def test_all_aliases_point_to_existing_canonical_entries():
+    profile = load_profile()
+    entries = profile["entries"]
+
+    for alias, canonical in profile["aliases"].items():
+        assert canonical in entries, f"{alias!r} points to missing canonical entry {canonical!r}"
+
+
+@pytest.mark.parametrize("word", load_core_words())
+def test_all_core_words_resolve(word):
+    profile = load_runtime_profile(PROFILE_PATH)
+    assert resolve(word, profile) is not None
 
 
 def test_selected_entries_map_to_expected_emojis():

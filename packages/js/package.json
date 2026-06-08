@@ -1,0 +1,16 @@
+{
+  "name": "sitelen-emoji",
+  "version": "0.1.0",
+  "description": "toki pona to sitelen emoji lookup and translation helpers",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test.js"
+  },
+  "keywords": ["toki pona", "emoji", "sitelen emoji"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markoblogo/sitelen-emoji-truth.git"
+  }
+}

@@ -4,6 +4,8 @@ A pinned, versioned “source of truth” profile for toki pona → sitelen emoj
 [![build](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml/badge.svg?branch=main&v=1)](https://github.com/markoblogo/sitelen-emoji-truth/actions/workflows/build.yml)
 [![tag](https://img.shields.io/github/v/tag/markoblogo/sitelen-emoji-truth?sort=semver)](https://github.com/markoblogo/sitelen-emoji-truth/tags)
 [![license](https://img.shields.io/github/license/markoblogo/sitelen-emoji-truth)](https://github.com/markoblogo/sitelen-emoji-truth/blob/main/LICENSE)
+[![Reader's Kit](https://img.shields.io/badge/Reader's%20Kit-free%20PDF-0f766e)](https://toki.abvx.xyz/kit)
+[![Viewer](https://img.shields.io/badge/GitHub%20Pages-viewer-2563eb)](https://markoblogo.github.io/sitelen-emoji-truth/)
 
 <p align="center">
   <img src="docs/cover.png" alt="sitelen-emoji-truth cover" width="980" />
@@ -15,12 +17,23 @@ Canonical **frozen** mapping for **toki pona → sitelen emoji**.
 
 > Goal: one stable “source of truth” for production (translator, books), with reproducible visuals.
 
+**Browse the mapping:** https://markoblogo.github.io/sitelen-emoji-truth/
+
+**Free toki pona Reader’s Kit:** https://toki.abvx.xyz/kit
+
 ---
+
+## Use the data
+
+- Browser: open the [GitHub Pages viewer](https://markoblogo.github.io/sitelen-emoji-truth/).
+- JSON: pin a tag and fetch `profiles/default-stable.v1.json`.
+- Python/Node: use the local package helpers while npm/PyPI publishing is prepared.
 
 ## What is frozen vs generated
 
 - **Frozen (source of truth):**
   - `profiles/default-stable.v1.json` — pinned mapping intended for integrations and publishing.
+  - `profiles/schema.json` — JSON Schema for validating profile files.
 
 - **Generated (for comparison / upstream tracking):**
   - `dist/default-stable.json` — produced by `tools/build_default_stable.py` from upstream sources.
@@ -98,6 +111,26 @@ python3 -m tools.coverage_report
 ```bash
 python3 examples/python-load-profile.py
 node examples/node-load-profile.js
+```
+
+## Local package helpers
+
+Python:
+
+```python
+from sitelen_emoji import lookup, translate
+
+lookup("toki")          # "🗣️"
+translate("jan pona")  # "👤 👍"
+```
+
+Node:
+
+```js
+const { lookup, translate } = require("./packages/js");
+
+lookup("toki");          // "🗣️"
+translate("jan pona");  // "👤 👍"
 ```
 
 ---
